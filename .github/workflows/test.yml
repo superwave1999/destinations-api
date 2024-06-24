@@ -12,7 +12,7 @@ jobs:
       mariadb:
         image: mariadb:10.11
         env:
-          MARIADB_ROOT_PASSWORD: ''
+          MARIADB_ROOT_PASSWORD: root
           MARIADB_DATABASE: destinations_testing
         ports:
           - 3306:3306
