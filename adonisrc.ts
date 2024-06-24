@@ -29,6 +29,7 @@ export default defineConfig({
       environment: ['repl', 'test'],
     },
     () => import('@adonisjs/lucid/database_provider'),
+    () => import('@adonisjs/core/providers/vinejs_provider'),
   ],
 
   /*
