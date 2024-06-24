@@ -13,7 +13,7 @@ jobs:
         image: mariadb:10.11
         env:
           MARIADB_ROOT_PASSWORD: root
-          MARIADB_DATABASE: testing
+          MARIADB_DATABASE: destinations_testing
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -25,6 +25,5 @@ jobs:
           node-version: '20.x'
       - run: npm ci
       - run: npm run typecheck
-      - run: npm run lint
-      - run: npm run format
+      - run: npm run check
       - run: node ace test

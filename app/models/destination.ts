@@ -1,8 +1,9 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { column } from '@adonisjs/lucid/orm'
 import { DestinationType } from '../types/destination_type.js'
+import AbstractModel from '#models/abstract_model'
 
-export default class Destination extends BaseModel {
+export default class Destination extends AbstractModel {
   @column({ isPrimary: true })
   declare id: number
 
