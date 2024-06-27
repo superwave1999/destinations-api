@@ -8,8 +8,8 @@ export default class AbstractController {
     const paginatedData = await this.actions.search(
       request.input('search', ''),
       [],
-      request.input('page', 1),
-      request.input('pageSize', 25)
+      Math.max(1, request.input('page', 1)),
+      Math.max(1, request.input('pageSize', 50))
     )
     response.send(paginatedData)
   }
