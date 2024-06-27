@@ -1,7 +1,7 @@
 import Destination from '#models/destination'
 import { inject } from '@adonisjs/core'
 import DestinationRepository from '../repositories/destination_repository.js'
-import { createDestinationValidator, updateDestinationValidator } from '#validators/destination'
+import { destinationValidator } from '#validators/destination'
 
 @inject()
 export default class DestinationActions {
@@ -22,12 +22,12 @@ export default class DestinationActions {
 
   async update(id: number, data: object): Promise<Destination> {
     const model = await this.repository.single(id)
-    const payload = await updateDestinationValidator.validate(data)
+    const payload = await destinationValidator.validate(data)
     return await this.repository.update(model, payload)
   }
 
   async create(data: object): Promise<Destination> {
-    const payload = await createDestinationValidator.validate(data)
+    const payload = await destinationValidator.validate(data)
     return await this.repository.create(payload)
   }
 }
